@@ -11,14 +11,14 @@ describe("Command class", function () {
     }).toThrow(new Error("Command type required."));
   });
 
-//   // Test 2
+  // Test 2
   it("constructor sets command type", function () {
     expect(new Command("example_command", "example_value").commandType).toBe(
       "example_command"
     );
   });
 
-//   // Test 3
+  // Test 3
   it("constructor sets a value passed in as the 2nd argument", function () {
     expect(new Command("example_command", "example_value").value).toBe(
       "example_value"

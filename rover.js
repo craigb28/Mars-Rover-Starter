@@ -27,9 +27,9 @@ class Rover {
         };
         resultsArray.push({ completed: true, roverStatus });
       } else if (message.commands[i].commandType === "MOVE") {
-        if ((this.mode === "LOW_POWER")) {
+        if (this.mode === "LOW_POWER") {
           resultsArray.push({ completed: false });
-        } else if ((this.mode === "NORMAL")) {
+        } else if (this.mode === "NORMAL") {
           this.position = message.commands[i].value;
           resultsArray.push({ completed: true });
         }
@@ -40,29 +40,3 @@ class Rover {
 }
 
 module.exports = Rover;
-
-// let rover = new Rover(100);
-// let commands = [
-//   // new Command("MOVE", 4321),
-//   // new Command("STATUS_CHECK"),
-//   new Command("MODE_CHANGE", "LOW_POWER"),
-//   new Command("MODE_CHANGE", "LOW_POWER"),
-//   new Command("MODE_CHANGE", "LOW_POWER"),
-//   // new Command("MOVE", 3579),
-//   // new Command("STATUS_CHECK"),
-// ];
-// let message = new Message("TA power", commands);
-// let response = rover.receiveMessage(message);
-
-// console.log(response);
-// //console.log(JSON.stringify(response, null, 2));
-
-// console.log(commands);
-
-let rover = new Rover(5);
-let commands = [
-  new Command("MODE_CHANGE", "LOW_POWER"),new Command("MOVE", 101),
-];
-let message = new Message("Example_message", commands);
-const received = rover.receiveMessage(message);
-console.log(received); // Output the received value to the console
